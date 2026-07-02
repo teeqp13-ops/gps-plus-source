@@ -1,0 +1,847 @@
+{
+  "name": "Gps Plus Source",
+  "identifier": "com.gpsplus.source",
+  "sourceURL": "https://teeqp13-ops.github.io/gps-plus-source/source.json",
+  "apps": [
+    {
+      "name": "GpsPlus",
+      "bundleIdentifier": "com.gpsplus.app",
+      "developerName": "Gps Plus Team",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://teeqp13-ops.github.io/gps-plus-source/GpsPlus.ipa",
+      "localizedDescription": "تطبيق Gps Plus المعدل مع ميزات إضافية.",
+      "iconURL": "https://teeqp13-ops.github.io/gps-plus-source/icon.png",
+      "size": 14400000
+    },
+    {
+      "name": "جمعية الشاطبي التعليمية - رافد",
+      "bundleIdentifier": "com.rafed.shatiby.panel",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=495bf2af1e",
+      "localizedDescription": "تطبيق جمعية الشاطبي التعليمية - رافد مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340728_d116d4.png"
+    },
+    {
+      "name": "Darwinbox",
+      "bundleIdentifier": "com.darwinbox.darwinboxswift",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=darwinbox",
+      "localizedDescription": "تطبيق Darwinbox مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1779821754_e2abd1.png"
+    },
+    {
+      "name": "Truein User",
+      "bundleIdentifier": "com.gotruein.one",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=truein-user",
+      "localizedDescription": "تطبيق Truein User مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340420_a5a2ef.png"
+    },
+    {
+      "name": "Malachite",
+      "bundleIdentifier": "com.creadev.malachite",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=malachite",
+      "localizedDescription": "تطبيق Malachite مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340332_dab825.png"
+    },
+    {
+      "name": "Employee Switch",
+      "bundleIdentifier": "sa.gov.ncw.employeeswitch",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=employee-switch",
+      "localizedDescription": "تطبيق Employee Switch مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340383_1d90f4.png"
+    },
+    {
+      "name": "Bayzat",
+      "bundleIdentifier": "com.bayzat.benefits",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=bayzat",
+      "localizedDescription": "تطبيق Bayzat مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340277_10161f.png"
+    },
+    {
+      "name": "خدمات الموظفين",
+      "bundleIdentifier": "sa.gov.pv.internal",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=bcc3ed6c28",
+      "localizedDescription": "تطبيق خدمات الموظفين مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340392_058881.png"
+    },
+    {
+      "name": "Availo Plus",
+      "bundleIdentifier": "app.t2.availo",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=availo-plus",
+      "localizedDescription": "تطبيق Availo Plus مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782913819_49025e.png"
+    },
+    {
+      "name": "Hader",
+      "bundleIdentifier": "sa.edu.su.hader",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=hader",
+      "localizedDescription": "تطبيق Hader مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340341_516de9.png"
+    },
+    {
+      "name": "بوابتي",
+      "bundleIdentifier": "com.sec.EmployeeApp",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=a494a140c4",
+      "localizedDescription": "تطبيق بوابتي مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340257_349026.png"
+    },
+    {
+      "name": "ubiHrm",
+      "bundleIdentifier": "com.ubihrm.ubihrm",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=ubihrm",
+      "localizedDescription": "تطبيق ubiHrm مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340267_b9d29a.png"
+    },
+    {
+      "name": "Bolt Driver",
+      "bundleIdentifier": "ee.taxify.driver",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=bolt-driver",
+      "localizedDescription": "تطبيق Bolt Driver مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340366_bdea0a.png"
+    },
+    {
+      "name": "PULSE 360",
+      "bundleIdentifier": "com.gccksa.pulse360",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=pulse-360",
+      "localizedDescription": "تطبيق PULSE 360 مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340248_8669fb.png"
+    },
+    {
+      "name": "وزارة التربية",
+      "bundleIdentifier": "com.moe.moeMobileApp",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=b44d0a73a5",
+      "localizedDescription": "تطبيق وزارة التربية مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340296_3354fe.png"
+    },
+    {
+      "name": "ZenHR",
+      "bundleIdentifier": "com.zenhr",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=zenhr",
+      "localizedDescription": "تطبيق ZenHR مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340411_a4be13.png"
+    },
+    {
+      "name": "TAKID - تأكيد",
+      "bundleIdentifier": "com.clueweb.takidguard",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=takid",
+      "localizedDescription": "تطبيق TAKID - تأكيد مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340402_27684f.png"
+    },
+    {
+      "name": "UJ Connect",
+      "bundleIdentifier": "sa.edu.uj.UjApp",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=uj-connect",
+      "localizedDescription": "تطبيق UJ Connect مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340358_25eb63.png"
+    },
+    {
+      "name": "الري",
+      "bundleIdentifier": "com.sio.rai",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=46def3f476",
+      "localizedDescription": "تطبيق الري مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782799366_140cac.png"
+    },
+    {
+      "name": "Wafi 360",
+      "bundleIdentifier": "com.romoz.wafi360",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=wafi-360",
+      "localizedDescription": "تطبيق Wafi 360 مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340323_108a33.png"
+    },
+    {
+      "name": "MenaME-Plus⁺",
+      "bundleIdentifier": "com.menaitech.mename",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=mename-plus",
+      "localizedDescription": "تطبيق MenaME-Plus⁺ مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340448_cd867a.png"
+    },
+    {
+      "name": "اكتفاء",
+      "bundleIdentifier": "com.zadip.ektefa.v2",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=548cdf12bc",
+      "localizedDescription": "تطبيق اكتفاء مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340493_b15482.png"
+    },
+    {
+      "name": "Smart Attendance",
+      "bundleIdentifier": "com.mohapp.smartattendance",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=smart-attendance",
+      "localizedDescription": "تطبيق Smart Attendance مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340466_fbad26.png"
+    },
+    {
+      "name": "CSC Basma",
+      "bundleIdentifier": "kw.gov.csc.fingerprint",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=csc-basma",
+      "localizedDescription": "تطبيق CSC Basma مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340457_c1fbf6.png"
+    },
+    {
+      "name": "Ringo HR",
+      "bundleIdentifier": "com.ringomedia.hr",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=ringo-hr",
+      "localizedDescription": "تطبيق Ringo HR مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340428_aee72c.png"
+    },
+    {
+      "name": "Dynamics ESS 365",
+      "bundleIdentifier": "com.restart.SoleTech.Temp.365",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=dynamics-ess-365",
+      "localizedDescription": "تطبيق Dynamics ESS 365 مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340545_2dd9fc.png"
+    },
+    {
+      "name": "Locate Go",
+      "bundleIdentifier": "sa.lg.ios.locate",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=locate-go",
+      "localizedDescription": "تطبيق Locate Go مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340519_b30353.png"
+    },
+    {
+      "name": "Al Habib MoheM",
+      "bundleIdentifier": "com.cloudsolutions.alhabibmohemm",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=al-habib-mohem",
+      "localizedDescription": "تطبيق Al Habib MoheM مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340511_b554c1.png"
+    },
+    {
+      "name": "mawarid",
+      "bundleIdentifier": "gov.rcjy.mawarid",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=mawarid",
+      "localizedDescription": "تطبيق mawarid مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340487_304c05.png"
+    },
+    {
+      "name": "حاضر بلس",
+      "bundleIdentifier": "sa.alfursan.it.apps.ontimeplus",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=8807f67ae4",
+      "localizedDescription": "تطبيق حاضر بلس مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340438_4b59ea.png"
+    },
+    {
+      "name": "MyERP",
+      "bundleIdentifier": "net.zone.bitaqati.ios.GCA.PROD",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=myerp",
+      "localizedDescription": "تطبيق MyERP مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340533_0e3b9d.png"
+    },
+    {
+      "name": "Mawared",
+      "bundleIdentifier": "sa.gov.moh",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=mawared",
+      "localizedDescription": "تطبيق Mawared مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340526_0a2350.png"
+    },
+    {
+      "name": "MARFA - مرفأ",
+      "bundleIdentifier": "net.zone.bitaqati.nwc",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=marfa",
+      "localizedDescription": "تطبيق MARFA - مرفأ مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340473_36aa74.png"
+    },
+    {
+      "name": "Es App",
+      "bundleIdentifier": "sa.gov.moia.es.amer2",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=es-app",
+      "localizedDescription": "تطبيق Es App مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340577_8fa3e1.png"
+    },
+    {
+      "name": "Mawjood",
+      "bundleIdentifier": "com.bawrek.mawjood",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=mawjood",
+      "localizedDescription": "تطبيق Mawjood مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340557_d41161.png"
+    },
+    {
+      "name": "Tanaqol ECare",
+      "bundleIdentifier": "com.tanaqol.employee.tanaqolAttendance",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=tanaqol-ecare",
+      "localizedDescription": "تطبيق Tanaqol ECare مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340481_2789d8.png"
+    },
+    {
+      "name": "مرن Marn",
+      "bundleIdentifier": "com.marnapp",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=marn",
+      "localizedDescription": "تطبيق مرن Marn مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340552_c4cffb.png"
+    },
+    {
+      "name": "AMER",
+      "bundleIdentifier": "sa.nhc.mob.sshr",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=amer",
+      "localizedDescription": "تطبيق AMER مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340587_16476a.png"
+    },
+    {
+      "name": "تطبيق الأمانة",
+      "bundleIdentifier": "taifcity.taifcityapp",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=04a8ed5103",
+      "localizedDescription": "تطبيق تطبيق الأمانة مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340502_ccdd7f.png"
+    },
+    {
+      "name": "Dawmt",
+      "bundleIdentifier": "com.cannytechs.dawmtapp",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=dawmt",
+      "localizedDescription": "تطبيق Dawmt مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340600_1b707a.png"
+    },
+    {
+      "name": "Rehla",
+      "bundleIdentifier": "com.onmyway.Rehla",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=rehla",
+      "localizedDescription": "تطبيق Rehla مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340539_7741c4.png"
+    },
+    {
+      "name": "Hadir",
+      "bundleIdentifier": "sa.com.bc.hadirv3",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=hadir",
+      "localizedDescription": "تطبيق Hadir مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340582_ba357a.png"
+    },
+    {
+      "name": "PalmHR",
+      "bundleIdentifier": "com.codeit.palmhr",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=palmhr",
+      "localizedDescription": "تطبيق PalmHR مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340567_09f762.png"
+    },
+    {
+      "name": "تكامل",
+      "bundleIdentifier": "com.magattend.app",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=623559996a",
+      "localizedDescription": "تطبيق تكامل مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340572_0d2855.png"
+    },
+    {
+      "name": "منسوبي المساجد",
+      "bundleIdentifier": "sa.gov.moia.mosques2",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=695002d055",
+      "localizedDescription": "تطبيق منسوبي المساجد مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340609_1ef6ce.png"
+    },
+    {
+      "name": "Msar Captain",
+      "bundleIdentifier": "com.bd.appstick.msaramendriver",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=msar-captain",
+      "localizedDescription": "تطبيق Msar Captain مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340562_5035a4.png"
+    },
+    {
+      "name": "خدماتي بلس",
+      "bundleIdentifier": "com.bog.essmobile",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=7e7f694cab",
+      "localizedDescription": "تطبيق خدماتي بلس مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340596_199dd9.png"
+    },
+    {
+      "name": "KayanHR",
+      "bundleIdentifier": "com.uba.kayanhr",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=kayanhr",
+      "localizedDescription": "تطبيق KayanHR مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340634_cd5440.png"
+    },
+    {
+      "name": "حياك حج",
+      "bundleIdentifier": "sa.alfursan.it.apps.hayyakplus.ios",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=78e5340841",
+      "localizedDescription": "تطبيق حياك حج مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340616_d8389d.png"
+    },
+    {
+      "name": "Jisr HR",
+      "bundleIdentifier": "com.clickapps.jisr",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=jisr-hr",
+      "localizedDescription": "تطبيق Jisr HR مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782723921_a54a79.png"
+    },
+    {
+      "name": "بصمتي - Basmati",
+      "bundleIdentifier": "ae.gov.shjmun.basmati",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=basmati",
+      "localizedDescription": "تطبيق بصمتي - Basmati مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340605_de0033.png"
+    },
+    {
+      "name": "E-HUB",
+      "bundleIdentifier": "com.ehub.sa",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=e-hub",
+      "localizedDescription": "تطبيق E-HUB مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340622_785746.png"
+    },
+    {
+      "name": "Odex SS",
+      "bundleIdentifier": "com.expsa.odex",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=odex-ss",
+      "localizedDescription": "تطبيق Odex SS مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340651_5dedf9.png"
+    },
+    {
+      "name": "PSHRC بوابة الموظف",
+      "bundleIdentifier": "com.pshrc.hrPortal",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=pshrc",
+      "localizedDescription": "تطبيق PSHRC بوابة الموظف مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340647_36997d.png"
+    },
+    {
+      "name": "HUDURI",
+      "bundleIdentifier": "com.t2.AvailoHader",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=huduri",
+      "localizedDescription": "تطبيق HUDURI مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340693_43121f.png"
+    },
+    {
+      "name": "MyUB",
+      "bundleIdentifier": "sa.edu.ub.myub",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=myub",
+      "localizedDescription": "تطبيق MyUB مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340665_e7d2ae.png"
+    },
+    {
+      "name": "Nupconeers",
+      "bundleIdentifier": "com.nupco.hr",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=nupconeers",
+      "localizedDescription": "تطبيق Nupconeers مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340619_848e5d.png"
+    },
+    {
+      "name": "iHRvision",
+      "bundleIdentifier": "com.ihr.ihrvision",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=ihrvision",
+      "localizedDescription": "تطبيق iHRvision مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340642_bdedf6.png"
+    },
+    {
+      "name": "My Workplace",
+      "bundleIdentifier": "com.awaeljo.myworkplace",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=my-workplace",
+      "localizedDescription": "تطبيق My Workplace مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340660_68aa77.png"
+    },
+    {
+      "name": "ReachGo",
+      "bundleIdentifier": "com.reachgroup.reachGOv2",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=reachgo",
+      "localizedDescription": "تطبيق ReachGo مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340683_955cdf.png"
+    },
+    {
+      "name": "إمارة المدينة",
+      "bundleIdentifier": "gov.almadinah.services",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=187c456676",
+      "localizedDescription": "تطبيق إمارة المدينة مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340656_c5fc45.png"
+    },
+    {
+      "name": "Paaet - تطبيقي",
+      "bundleIdentifier": "kw.edu.paaet.paaetmobile",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=paaet",
+      "localizedDescription": "تطبيق Paaet - تطبيقي مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340673_46d5e6.png"
+    },
+    {
+      "name": "Idaratech",
+      "bundleIdentifier": "com.idaratech.apple",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=idaratech",
+      "localizedDescription": "تطبيق Idaratech مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340698_ebbb3f.png"
+    },
+    {
+      "name": "Tahakom",
+      "bundleIdentifier": "com.tahakom.mytahakom",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=tahakom",
+      "localizedDescription": "تطبيق Tahakom مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340638_47f84a.png"
+    },
+    {
+      "name": "Hudoor",
+      "bundleIdentifier": "Hudoor.net",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=hudoor",
+      "localizedDescription": "تطبيق Hudoor مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340703_e58a6b.png"
+    },
+    {
+      "name": "نورت",
+      "bundleIdentifier": "sa.tamkeentech.attendance.app",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=bdd7e78ed9",
+      "localizedDescription": "تطبيق نورت مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340669_db31cc.png"
+    },
+    {
+      "name": "KSU",
+      "bundleIdentifier": "com.domainname.KSUStaff",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=ksu",
+      "localizedDescription": "تطبيق KSU مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340612_8a153f.png"
+    },
+    {
+      "name": "OnTime KAAUH",
+      "bundleIdentifier": "com.attendanceapp.attendanceApp",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=ontime-kaauh",
+      "localizedDescription": "تطبيق OnTime KAAUH مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340712_988763.png"
+    },
+    {
+      "name": "بصمتي - بلدية الكويت",
+      "bundleIdentifier": "com.km.attendance",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=fb21c77099",
+      "localizedDescription": "تطبيق بصمتي - بلدية الكويت مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340708_d74d5f.png"
+    },
+    {
+      "name": "Basmtak",
+      "bundleIdentifier": "com.basmtak.app",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=basmtak",
+      "localizedDescription": "تطبيق Basmtak مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340678_cac36e.png"
+    },
+    {
+      "name": "SAHL",
+      "bundleIdentifier": "stc.sahl.dynamicform",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=sahl",
+      "localizedDescription": "تطبيق SAHL مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340625_050113.png"
+    },
+    {
+      "name": "حساب المواطن",
+      "bundleIdentifier": "com.mlsd.citizenaccount",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=90709f300b",
+      "localizedDescription": "تطبيق حساب المواطن مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340715_27129a.png"
+    },
+    {
+      "name": "Oracle Fusion Apps",
+      "bundleIdentifier": "com.oracle.cloud.hcm.mobile",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=oracle-fusion-apps",
+      "localizedDescription": "تطبيق Oracle Fusion Apps مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340718_296ff7.png"
+    },
+    {
+      "name": "ZKBio Time",
+      "bundleIdentifier": "com.zkteco.biotime",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=zkbio-time",
+      "localizedDescription": "تطبيق ZKBio Time مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340721_16a196.png"
+    },
+    {
+      "name": "TVTC",
+      "bundleIdentifier": "gov.tvtc.itvtc",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=tvtc",
+      "localizedDescription": "تطبيق TVTC مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340724_b2811b.png"
+    },
+    {
+      "name": "ITYAAN",
+      "bundleIdentifier": "com.rke.individual.MowJood",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=ityaan",
+      "localizedDescription": "تطبيق ITYAAN مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340726_da8045.png"
+    },
+    {
+      "name": "Baladia 139",
+      "bundleIdentifier": "kw.gov.baladia.baladia139",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=baladia-139",
+      "localizedDescription": "تطبيق Baladia 139 مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340727_522b51.png"
+    },
+    {
+      "name": "Hader",
+      "bundleIdentifier": "sa.edu.su.hader.sa",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=hader-1",
+      "localizedDescription": "تطبيق Hader مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782722174_e6bad9.png"
+    },
+    {
+      "name": "منسوبي المساجد",
+      "bundleIdentifier": "sa.gov.moia.mosques-2",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=4fd7657626",
+      "localizedDescription": "تطبيق منسوبي المساجد مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340591_e25d30.png"
+    },
+    {
+      "name": "Lark",
+      "bundleIdentifier": "com.larksuite.lark",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=lark",
+      "localizedDescription": "تطبيق Lark مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1781320819_b29cc8.png"
+    },
+    {
+      "name": "COSEC APTA",
+      "bundleIdentifier": "com.matrixcomsec.ess",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=cosec-apta",
+      "localizedDescription": "تطبيق COSEC APTA مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340287_035fff.png"
+    },
+    {
+      "name": "Connecteam",
+      "bundleIdentifier": "com.connecteam.Connecteam",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=connecteam",
+      "localizedDescription": "تطبيق Connecteam مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1782340349_702934.png"
+    },
+    {
+      "name": "معاً",
+      "bundleIdentifier": "com.maan.co",
+      "developerName": "IPA Plus",
+      "version": "1.0.0",
+      "versionDate": "2024-07-02",
+      "downloadURL": "https://ipa-plus.com/public/app-gps-plus/download.php?id=21a9c9dcbb",
+      "localizedDescription": "تطبيق معاً مسحوب من IPA Plus.",
+      "iconURL": "https://ipa-plus.com/public/app-gps-plus/icons/1783023116_cf18a3.png"
+    }
+  ],
+  "news": [
+    {
+      "title": "تنبيه النظام",
+      "caption": "جاري جلب الشهادات من الخادم...",
+      "date": "2024-07-02",
+      "identifier": "cert-fetch-notify",
+      "notify": true
+    }
+  ]
+}
