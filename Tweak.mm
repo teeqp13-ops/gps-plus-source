@@ -2,7 +2,8 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-static UIWindow *WFOverlayWindow;
+@class WFOverlayWindow;
+static WFOverlayWindow *gWFOverlayWindow = nil;
 
 @interface WFPanelController : UIViewController <MKMapViewDelegate, UISearchBarDelegate>
 @property(nonatomic,strong) MKMapView *mapView;
@@ -151,7 +152,7 @@ static UIWindow *WFOverlayWindow;
 }
 
 - (void)openPanel {
-    UIViewController *root = WFOverlayWindow.rootViewController;
+    UIViewController *root = gWFOverlayWindow.rootViewController;
     while (root.presentedViewController) root = root.presentedViewController;
     WFPanelController *panel = [[WFPanelController alloc] init];
     panel.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -171,16 +172,16 @@ static UIWindow *WFOverlayWindow;
 
 __attribute__((constructor)) static void WolFoxGPSInit(void) {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (WFOverlayWindow) return;
+        if (gWFOverlayWindow) return;
         CGRect bounds = UIScreen.mainScreen.bounds;
-        WFOverlayWindow = [[WFOverlayWindow alloc] initWithFrame:bounds];
-        WFOverlayWindow.windowLevel = UIWindowLevelAlert + 20;
-        WFOverlayWindow.backgroundColor = UIColor.clearColor;
+        gWFOverlayWindow = [[WFOverlayWindow alloc] initWithFrame:bounds];
+        gWFOverlayWindow.windowLevel = UIWindowLevelAlert + 20;
+        gWFOverlayWindow.backgroundColor = UIColor.clearColor;
         UIViewController *root = [[UIViewController alloc] init];
         root.view.backgroundColor = UIColor.clearColor;
-        WFOverlayWindow.rootViewController = root;
+        gWFOverlayWindow.rootViewController = root;
         WFFloatingButton *button = [[WFFloatingButton alloc] initWithFrame:CGRectMake(18, 160, 62, 62)];
         [root.view addSubview:button];
-        WFOverlayWindow.hidden = NO;
+        gWFOverlayWindow.hidden = NO;
     });
 }
