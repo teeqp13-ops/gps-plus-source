@@ -3,8 +3,7 @@ name: Build WolFox GPS DEB
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
 
 permissions:
   contents: read
@@ -16,7 +15,6 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     timeout-minutes: 35
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,36 +26,51 @@ jobs:
 
       - name: Verify project files
         run: |
-          pwd
           ls -la
           test -f Makefile
           test -f Tweak.xm
+          test -f LicenseGate.xm
           test -f control
           test -f WolFoxGPS.plist
-          grep -q 'WolFoxGPS_FILES.*Tweak.xm' Makefile
 
       - name: Install Theos, toolchain and SDKs
         run: |
           rm -rf "$THEOS"
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
-          test -d "$THEOS"
           test -x "$THEOS/toolchain/linux/iphone/bin/clang"
           test -n "$(find "$THEOS/sdks" -maxdepth 1 -type d -name '*.sdk' -print -quit)"
-          "$THEOS/toolchain/linux/iphone/bin/clang" --version
 
       - name: Build rootless package
-        working-directory: ${{ github.workspace }}
+        shell: bash
         run: |
+          set +e
           make clean
-          make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless messages=yes
+          make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless messages=yes -j1 2>&1 | tee build.log
+          status=${PIPESTATUS[0]}
+          echo ""
+          echo "========== BUILD ERRORS =========="
+          grep -nE 'error:|fatal error:|Undefined symbols|duplicate symbol|ld:|make\[[0-9]+\]: \*\*\*' build.log || true
+          echo "=================================="
+          exit "$status"
+
+      - name: Upload build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: WolFox-GPS-Build-Log
+          path: build.log
+          if-no-files-found: ignore
+          retention-days: 7
 
       - name: Collect packages
+        if: success()
         run: |
           mkdir -p artifacts
           find packages -type f -name '*.deb' -exec cp -v {} artifacts/ \;
           test -n "$(find artifacts -type f -name '*.deb' -print -quit)"
 
       - name: Upload DEB artifact
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: WolFox-GPS-DEB
