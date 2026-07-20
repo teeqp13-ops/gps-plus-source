@@ -76,20 +76,51 @@ static void WFActivate(NSString *code, void (^done)(BOOL, NSString *)) {
 @end
 
 @implementation WFLicenseControllerV3
+- (BOOL)prefersStatusBarHidden { return YES; }
+- (BOOL)prefersHomeIndicatorAutoHidden { return YES; }
+- (UIRectEdge)preferredScreenEdgesDeferringSystemGestures { return UIRectEdgeAll; }
 - (void)viewDidLoad {
-    [super viewDidLoad]; self.view.backgroundColor = UIColor.blackColor;
+    [super viewDidLoad];
+    self.modalPresentationCapturesStatusBarAppearance = YES;
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    self.view.frame = UIScreen.mainScreen.bounds;
+    self.view.backgroundColor = UIColor.blackColor;
+
     UILabel *title = [[UILabel alloc] init]; title.translatesAutoresizingMaskIntoConstraints = NO; title.text = @"تفعيل WolFox GPS"; title.textColor = UIColor.whiteColor; title.font = [UIFont boldSystemFontOfSize:24]; title.textAlignment = NSTextAlignmentCenter; [self.view addSubview:title];
     UILabel *device = [[UILabel alloc] init]; device.translatesAutoresizingMaskIntoConstraints = NO; device.text = [NSString stringWithFormat:@"معرف الجهاز\n%@", WFUUID()]; device.textColor = UIColor.grayColor; device.numberOfLines = 2; device.textAlignment = NSTextAlignmentCenter; [self.view addSubview:device];
     self.field = [[UITextField alloc] init]; self.field.translatesAutoresizingMaskIntoConstraints = NO; self.field.text = [WFDef() stringForKey:WFCodeKey]; self.field.placeholder = @"أدخل كود التفعيل"; self.field.textColor = UIColor.whiteColor; self.field.backgroundColor = [UIColor colorWithWhite:.1 alpha:1]; self.field.layer.cornerRadius = 14; self.field.textAlignment = NSTextAlignmentCenter; self.field.delegate = self; [self.view addSubview:self.field];
     self.button = [UIButton buttonWithType:UIButtonTypeSystem]; self.button.translatesAutoresizingMaskIntoConstraints = NO; self.button.backgroundColor = UIColor.systemGreenColor; self.button.layer.cornerRadius = 14; [self.button setTitle:@"تفعيل الكود" forState:UIControlStateNormal]; [self.button setTitleColor:UIColor.blackColor forState:UIControlStateNormal]; [self.button addTarget:self action:@selector(run) forControlEvents:UIControlEventTouchUpInside]; [self.view addSubview:self.button];
     self.status = [[UILabel alloc] init]; self.status.translatesAutoresizingMaskIntoConstraints = NO; self.status.textAlignment = NSTextAlignmentCenter; self.status.numberOfLines = 0; [self.view addSubview:self.status];
     UIButton *close = [UIButton buttonWithType:UIButtonTypeSystem]; close.translatesAutoresizingMaskIntoConstraints = NO; [close setTitle:@"إغلاق" forState:UIControlStateNormal]; [close addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside]; [self.view addSubview:close];
-    [NSLayoutConstraint activateConstraints:@[[title.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:70],[title.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],[device.topAnchor constraintEqualToAnchor:title.bottomAnchor constant:25],[device.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],[self.field.topAnchor constraintEqualToAnchor:device.bottomAnchor constant:35],[self.field.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:28],[self.field.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-28],[self.field.heightAnchor constraintEqualToConstant:58],[self.button.topAnchor constraintEqualToAnchor:self.field.bottomAnchor constant:18],[self.button.leadingAnchor constraintEqualToAnchor:self.field.leadingAnchor],[self.button.trailingAnchor constraintEqualToAnchor:self.field.trailingAnchor],[self.button.heightAnchor constraintEqualToConstant:56],[self.status.topAnchor constraintEqualToAnchor:self.button.bottomAnchor constant:18],[self.status.leadingAnchor constraintEqualToAnchor:self.field.leadingAnchor],[self.status.trailingAnchor constraintEqualToAnchor:self.field.trailingAnchor],[close.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-20],[close.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor]]];
+
+    [NSLayoutConstraint activateConstraints:@[
+        [title.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:95],
+        [title.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20],
+        [title.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-20],
+        [device.topAnchor constraintEqualToAnchor:title.bottomAnchor constant:25],
+        [device.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:24],
+        [device.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-24],
+        [self.field.topAnchor constraintEqualToAnchor:device.bottomAnchor constant:35],
+        [self.field.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:28],
+        [self.field.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-28],
+        [self.field.heightAnchor constraintEqualToConstant:58],
+        [self.button.topAnchor constraintEqualToAnchor:self.field.bottomAnchor constant:18],
+        [self.button.leadingAnchor constraintEqualToAnchor:self.field.leadingAnchor],
+        [self.button.trailingAnchor constraintEqualToAnchor:self.field.trailingAnchor],
+        [self.button.heightAnchor constraintEqualToConstant:56],
+        [self.status.topAnchor constraintEqualToAnchor:self.button.bottomAnchor constant:18],
+        [self.status.leadingAnchor constraintEqualToAnchor:self.field.leadingAnchor],
+        [self.status.trailingAnchor constraintEqualToAnchor:self.field.trailingAnchor],
+        [close.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-34],
+        [close.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor]
+    ]];
 }
 - (void)close { [self dismissViewControllerAnimated:YES completion:nil]; }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField { [self run]; return YES; }
 - (void)run {
-    NSString *code = [self.field.text stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+    NSString *source = self.field.text ?: @"";
+    NSString *code = [source stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
     if (code.length < 4) { self.status.text = @"أدخل كود تفعيل صحيح"; self.status.textColor = UIColor.systemRedColor; return; }
     self.button.enabled = NO; self.status.text = @"جاري التحقق..."; self.status.textColor = UIColor.grayColor;
     __weak typeof(self) weakSelf = self;
@@ -103,7 +134,10 @@ static void WFActivate(NSString *code, void (^done)(BOOL, NSString *)) {
     [WFDef() setBool:NO forKey:WFEnabledKeyGate];
     UIViewController *top = self.window.rootViewController;
     while (top.presentedViewController) top = top.presentedViewController;
-    WFLicenseControllerV3 *vc = [[WFLicenseControllerV3 alloc] init]; vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    WFLicenseControllerV3 *vc = [[WFLicenseControllerV3 alloc] init];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    vc.modalPresentationCapturesStatusBarAppearance = YES;
     __weak WFFloatingButton *weakButton = self; vc.successBlock = ^{ [weakButton openPanel]; };
     [top presentViewController:vc animated:YES completion:nil];
 }
