@@ -2,17 +2,34 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@class WFOverlayWindow;
-static WFOverlayWindow *gWFOverlayWindow = nil;
+@interface WFPassThroughWindow : UIWindow
+@end
+
+static WFPassThroughWindow *gWFOverlayWindow = nil;
 
 @interface WFPanelController : UIViewController <MKMapViewDelegate, UISearchBarDelegate>
-@property(nonatomic,strong) MKMapView *mapView;
-@property(nonatomic,strong) UILabel *coordinateLabel;
+@property(nonatomic, strong) MKMapView *mapView;
+@property(nonatomic, strong) UILabel *coordinateLabel;
+@end
+
+@interface WFFloatingButton : UIButton
+@end
+
+@implementation WFPassThroughWindow
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    UIView *hitView = [super hitTest:point withEvent:event];
+    UIView *rootView = self.rootViewController.view;
+    return (hitView == rootView) ? nil : hitView;
+}
+
 @end
 
 @implementation WFPanelController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.view.backgroundColor = [UIColor colorWithRed:0.03 green:0.04 blue:0.05 alpha:1.0];
 
     UIView *header = [[UIView alloc] init];
@@ -20,27 +37,30 @@ static WFOverlayWindow *gWFOverlayWindow = nil;
     header.backgroundColor = [UIColor colorWithRed:0.07 green:0.08 blue:0.09 alpha:1.0];
     [self.view addSubview:header];
 
-    UILabel *title = [[UILabel alloc] init];
-    title.translatesAutoresizingMaskIntoConstraints = NO;
-    title.text = @"WolFox GPS";
-    title.textColor = UIColor.whiteColor;
-    title.font = [UIFont boldSystemFontOfSize:20];
-    title.textAlignment = NSTextAlignmentCenter;
-    [header addSubview:title];
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    titleLabel.text = @"WolFox GPS";
+    titleLabel.textColor = UIColor.whiteColor;
+    titleLabel.font = [UIFont boldSystemFontOfSize:20.0];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    [header addSubview:titleLabel];
 
-    UIButton *close = [UIButton buttonWithType:UIButtonTypeSystem];
-    close.translatesAutoresizingMaskIntoConstraints = NO;
-    [close setTitle:@"إغلاق" forState:UIControlStateNormal];
-    [close setTitleColor:[UIColor colorWithRed:0.22 green:0.85 blue:0.38 alpha:1.0] forState:UIControlStateNormal];
-    [close addTarget:self action:@selector(closePanel) forControlEvents:UIControlEventTouchUpInside];
-    [header addSubview:close];
+    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    closeButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [closeButton setTitle:@"إغلاق" forState:UIControlStateNormal];
+    [closeButton setTitleColor:[UIColor colorWithRed:0.22 green:0.85 blue:0.38 alpha:1.0]
+                     forState:UIControlStateNormal];
+    [closeButton addTarget:self
+                    action:@selector(closePanel)
+          forControlEvents:UIControlEventTouchUpInside];
+    [header addSubview:closeButton];
 
-    UISearchBar *search = [[UISearchBar alloc] init];
-    search.translatesAutoresizingMaskIntoConstraints = NO;
-    search.placeholder = @"ابحث عن موقع";
-    search.delegate = self;
-    search.searchBarStyle = UISearchBarStyleMinimal;
-    [self.view addSubview:search];
+    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    searchBar.translatesAutoresizingMaskIntoConstraints = NO;
+    searchBar.placeholder = @"ابحث عن موقع";
+    searchBar.delegate = self;
+    searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    [self.view addSubview:searchBar];
 
     self.mapView = [[MKMapView alloc] init];
     self.mapView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -54,35 +74,42 @@ static WFOverlayWindow *gWFOverlayWindow = nil;
     self.coordinateLabel.textColor = UIColor.whiteColor;
     self.coordinateLabel.backgroundColor = [UIColor colorWithWhite:0.08 alpha:0.95];
     self.coordinateLabel.textAlignment = NSTextAlignmentCenter;
-    self.coordinateLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightMedium];
-    self.coordinateLabel.layer.cornerRadius = 14;
+    self.coordinateLabel.font = [UIFont systemFontOfSize:13.0 weight:UIFontWeightMedium];
+    self.coordinateLabel.layer.cornerRadius = 14.0;
     self.coordinateLabel.layer.masksToBounds = YES;
     [self.view addSubview:self.coordinateLabel];
 
-    UILongPressGestureRecognizer *press = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(selectLocation:)];
-    press.minimumPressDuration = 0.45;
-    [self.mapView addGestureRecognizer:press];
+    UILongPressGestureRecognizer *longPress =
+        [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                     action:@selector(selectLocation:)];
+    longPress.minimumPressDuration = 0.45;
+    [self.mapView addGestureRecognizer:longPress];
 
     [NSLayoutConstraint activateConstraints:@[
         [header.topAnchor constraintEqualToAnchor:self.view.topAnchor],
         [header.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
         [header.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
-        [header.heightAnchor constraintEqualToConstant:92],
-        [title.centerXAnchor constraintEqualToAnchor:header.centerXAnchor],
-        [title.bottomAnchor constraintEqualToAnchor:header.bottomAnchor constant:-14],
-        [close.trailingAnchor constraintEqualToAnchor:header.trailingAnchor constant:-18],
-        [close.centerYAnchor constraintEqualToAnchor:title.centerYAnchor],
-        [search.topAnchor constraintEqualToAnchor:header.bottomAnchor constant:6],
-        [search.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:10],
-        [search.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-10],
-        [self.mapView.topAnchor constraintEqualToAnchor:search.bottomAnchor constant:4],
+        [header.heightAnchor constraintEqualToConstant:92.0],
+
+        [titleLabel.centerXAnchor constraintEqualToAnchor:header.centerXAnchor],
+        [titleLabel.bottomAnchor constraintEqualToAnchor:header.bottomAnchor constant:-14.0],
+
+        [closeButton.trailingAnchor constraintEqualToAnchor:header.trailingAnchor constant:-18.0],
+        [closeButton.centerYAnchor constraintEqualToAnchor:titleLabel.centerYAnchor],
+
+        [searchBar.topAnchor constraintEqualToAnchor:header.bottomAnchor constant:6.0],
+        [searchBar.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:10.0],
+        [searchBar.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-10.0],
+
+        [self.mapView.topAnchor constraintEqualToAnchor:searchBar.bottomAnchor constant:4.0],
         [self.mapView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
         [self.mapView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
         [self.mapView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor],
-        [self.coordinateLabel.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:18],
-        [self.coordinateLabel.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-18],
-        [self.coordinateLabel.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-18],
-        [self.coordinateLabel.heightAnchor constraintEqualToConstant:48]
+
+        [self.coordinateLabel.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:18.0],
+        [self.coordinateLabel.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-18.0],
+        [self.coordinateLabel.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-18.0],
+        [self.coordinateLabel.heightAnchor constraintEqualToConstant:48.0]
     ]];
 }
 
@@ -91,97 +118,158 @@ static WFOverlayWindow *gWFOverlayWindow = nil;
 }
 
 - (void)selectLocation:(UILongPressGestureRecognizer *)gesture {
-    if (gesture.state != UIGestureRecognizerStateBegan) return;
+    if (gesture.state != UIGestureRecognizerStateBegan) {
+        return;
+    }
+
     CGPoint point = [gesture locationInView:self.mapView];
-    CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
-    [self.mapView removeAnnotations:self.mapView.annotations];
+    CLLocationCoordinate2D coordinate =
+        [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+
+    NSMutableArray<id<MKAnnotation>> *removableAnnotations = [NSMutableArray array];
+    for (id<MKAnnotation> annotation in self.mapView.annotations) {
+        if (![annotation isKindOfClass:[MKUserLocation class]]) {
+            [removableAnnotations addObject:annotation];
+        }
+    }
+    [self.mapView removeAnnotations:removableAnnotations];
+
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = coordinate;
     annotation.title = @"الموقع المحدد";
     [self.mapView addAnnotation:annotation];
-    self.coordinateLabel.text = [NSString stringWithFormat:@"%.6f, %.6f", coordinate.latitude, coordinate.longitude];
-    [[NSUserDefaults standardUserDefaults] setDouble:coordinate.latitude forKey:@"WolFoxLatitude"];
-    [[NSUserDefaults standardUserDefaults] setDouble:coordinate.longitude forKey:@"WolFoxLongitude"];
+
+    self.coordinateLabel.text =
+        [NSString stringWithFormat:@"%.6f, %.6f", coordinate.latitude, coordinate.longitude];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setDouble:coordinate.latitude forKey:@"WolFoxLatitude"];
+    [defaults setDouble:coordinate.longitude forKey:@"WolFoxLongitude"];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
-    if (searchBar.text.length == 0) return;
+
+    NSString *query = [searchBar.text stringByTrimmingCharactersInSet:
+                       [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (query.length == 0) {
+        return;
+    }
+
     MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
-    request.naturalLanguageQuery = searchBar.text;
-    MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
-    [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
+    request.naturalLanguageQuery = query;
+
+    MKLocalSearch *localSearch = [[MKLocalSearch alloc] initWithRequest:request];
+    __weak typeof(self) weakSelf = self;
+    [localSearch startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
+        if (error != nil || response.mapItems.count == 0) {
+            return;
+        }
+
         MKMapItem *item = response.mapItems.firstObject;
-        if (!item || error) return;
+        CLLocationCoordinate2D coordinate = item.placemark.coordinate;
+
         dispatch_async(dispatch_get_main_queue(), ^{
-            CLLocationCoordinate2D c = item.placemark.coordinate;
-            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(c, 2500, 2500);
-            [self.mapView setRegion:region animated:YES];
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if (strongSelf == nil) {
+                return;
+            }
+
+            MKCoordinateRegion region =
+                MKCoordinateRegionMakeWithDistance(coordinate, 2500.0, 2500.0);
+            [strongSelf.mapView setRegion:region animated:YES];
         });
     }];
 }
-@end
 
-@interface WFFloatingButton : UIButton
 @end
 
 @implementation WFFloatingButton
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor colorWithRed:0.22 green:0.85 blue:0.38 alpha:1.0];
-        self.layer.cornerRadius = 31;
+        self.layer.cornerRadius = CGRectGetWidth(frame) / 2.0;
         self.layer.shadowColor = UIColor.blackColor.CGColor;
         self.layer.shadowOpacity = 0.35;
-        self.layer.shadowRadius = 10;
-        self.layer.shadowOffset = CGSizeMake(0, 4);
+        self.layer.shadowRadius = 10.0;
+        self.layer.shadowOffset = CGSizeMake(0.0, 4.0);
+
         [self setTitle:@"GPS" forState:UIControlStateNormal];
         [self setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
-        self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
-        [self addTarget:self action:@selector(openPanel) forControlEvents:UIControlEventTouchUpInside];
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveButton:)];
-        [self addGestureRecognizer:pan];
+        self.titleLabel.font = [UIFont boldSystemFontOfSize:15.0];
+
+        [self addTarget:self
+                 action:@selector(openPanel)
+       forControlEvents:UIControlEventTouchUpInside];
+
+        UIPanGestureRecognizer *panGesture =
+            [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveButton:)];
+        [self addGestureRecognizer:panGesture];
     }
     return self;
 }
 
 - (void)moveButton:(UIPanGestureRecognizer *)gesture {
-    CGPoint translation = [gesture translationInView:self.superview];
-    self.center = CGPointMake(self.center.x + translation.x, self.center.y + translation.y);
-    [gesture setTranslation:CGPointZero inView:self.superview];
+    UIView *container = self.superview;
+    if (container == nil) {
+        return;
+    }
+
+    CGPoint translation = [gesture translationInView:container];
+    CGPoint nextCenter = CGPointMake(self.center.x + translation.x,
+                                     self.center.y + translation.y);
+
+    CGFloat halfWidth = CGRectGetWidth(self.bounds) / 2.0;
+    CGFloat halfHeight = CGRectGetHeight(self.bounds) / 2.0;
+    nextCenter.x = MAX(halfWidth, MIN(CGRectGetWidth(container.bounds) - halfWidth, nextCenter.x));
+    nextCenter.y = MAX(halfHeight, MIN(CGRectGetHeight(container.bounds) - halfHeight, nextCenter.y));
+
+    self.center = nextCenter;
+    [gesture setTranslation:CGPointZero inView:container];
 }
 
 - (void)openPanel {
-    UIViewController *root = gWFOverlayWindow.rootViewController;
-    while (root.presentedViewController) root = root.presentedViewController;
+    UIViewController *rootController = gWFOverlayWindow.rootViewController;
+    if (rootController == nil) {
+        return;
+    }
+
+    while (rootController.presentedViewController != nil) {
+        rootController = rootController.presentedViewController;
+    }
+
     WFPanelController *panel = [[WFPanelController alloc] init];
     panel.modalPresentationStyle = UIModalPresentationFullScreen;
-    [root presentViewController:panel animated:YES completion:nil];
+    [rootController presentViewController:panel animated:YES completion:nil];
 }
+
 @end
 
-@interface WFOverlayWindow : UIWindow
-@end
+static void WFCreateOverlayWindow(void) {
+    if (gWFOverlayWindow != nil) {
+        return;
+    }
 
-@implementation WFOverlayWindow
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    UIView *hit = [super hitTest:point withEvent:event];
-    return hit == self.rootViewController.view ? nil : hit;
+    CGRect bounds = UIScreen.mainScreen.bounds;
+    gWFOverlayWindow = [[WFPassThroughWindow alloc] initWithFrame:bounds];
+    gWFOverlayWindow.windowLevel = UIWindowLevelAlert + 20.0;
+    gWFOverlayWindow.backgroundColor = UIColor.clearColor;
+
+    UIViewController *rootController = [[UIViewController alloc] init];
+    rootController.view.backgroundColor = UIColor.clearColor;
+    gWFOverlayWindow.rootViewController = rootController;
+
+    WFFloatingButton *floatingButton =
+        [[WFFloatingButton alloc] initWithFrame:CGRectMake(18.0, 160.0, 62.0, 62.0)];
+    [rootController.view addSubview:floatingButton];
+
+    gWFOverlayWindow.hidden = NO;
 }
-@end
 
 __attribute__((constructor)) static void WolFoxGPSInit(void) {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (gWFOverlayWindow) return;
-        CGRect bounds = UIScreen.mainScreen.bounds;
-        gWFOverlayWindow = [[WFOverlayWindow alloc] initWithFrame:bounds];
-        gWFOverlayWindow.windowLevel = UIWindowLevelAlert + 20;
-        gWFOverlayWindow.backgroundColor = UIColor.clearColor;
-        UIViewController *root = [[UIViewController alloc] init];
-        root.view.backgroundColor = UIColor.clearColor;
-        gWFOverlayWindow.rootViewController = root;
-        WFFloatingButton *button = [[WFFloatingButton alloc] initWithFrame:CGRectMake(18, 160, 62, 62)];
-        [root.view addSubview:button];
-        gWFOverlayWindow.hidden = NO;
+        WFCreateOverlayWindow();
     });
 }
