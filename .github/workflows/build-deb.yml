@@ -31,10 +31,10 @@ jobs:
           pwd
           ls -la
           test -f Makefile
-          test -f Tweak.mm
+          test -f Tweak.xm
           test -f control
           test -f WolFoxGPS.plist
-          grep -q 'WolFoxGPS_FILES.*Tweak.mm' Makefile
+          grep -q 'WolFoxGPS_FILES.*Tweak.xm' Makefile
 
       - name: Install Theos, toolchain and SDKs
         run: |
