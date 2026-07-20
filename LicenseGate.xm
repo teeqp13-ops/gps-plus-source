@@ -6,7 +6,7 @@ static NSString * const WFLicenseTokenKey = @"WolFoxLicenseToken";
 static NSString * const WFLicenseExpiryKey = @"WolFoxLicenseExpiry";
 static NSString * const WFLicenseNameKey = @"WolFoxLicenseName";
 static NSString * const WFEnabledGateKey = @"WolFoxEnabled";
-static NSString * const WFLicenseAPIURL = @"https://p3nd.fun/gps/api_3R/verify.php";
+static NSString * const WFLicenseAPIURL = @"https://key.p3nd.fun/ipa";
 
 @interface WFFloatingButton : UIButton
 - (void)openPanel;
@@ -62,6 +62,7 @@ static void WFCheckCode(NSString *code, void (^done)(BOOL, NSString *)) {
     r.HTTPMethod = @"POST";
     r.timeoutInterval = 20;
     [r setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [r setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     NSDictionary *body = @{
         @"code": clean,
         @"license_code": clean,
