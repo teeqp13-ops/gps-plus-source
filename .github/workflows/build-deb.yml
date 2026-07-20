@@ -33,6 +33,19 @@ jobs:
           test -f control
           test -f WolFoxGPS.plist
 
+      - name: Fix source compatibility
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('LicenseGate.xm')
+          s = p.read_text()
+          old = 'NSString *clean = [[code ?: @""] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];'
+          new = 'NSString *sourceCode = code ? code : @"";\n    NSString *clean = [sourceCode stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];'
+          if old not in s:
+              raise SystemExit('target line not found')
+          p.write_text(s.replace(old, new, 1))
+          PY
+
       - name: Install Theos, toolchain and SDKs
         run: |
           rm -rf "$THEOS"
