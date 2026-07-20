@@ -1,0 +1,9 @@
+Package: com.wolfox.gps
+Name: WolFox GPS
+Depends: mobilesubstrate
+Version: 1.0.1
+Architecture: iphoneos-arm
+Description: WolFox GPS interface and location tools.
+Maintainer: WolFox
+Author: WolFox
+Section: Tweaks
