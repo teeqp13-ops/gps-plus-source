@@ -19,7 +19,10 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    timeout-minutes: 30
+    timeout-minutes: 35
+
+    env:
+      THEOS: ${{ github.workspace }}/theos
 
     steps:
       - name: Checkout
@@ -28,50 +31,38 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential fakeroot perl unzip git curl xz-utils libplist-utils clang lld
+          sudo apt-get install -y bash curl sudo git make perl build-essential fakeroot xz-utils unzip libplist-utils
 
-      - name: Install Theos and iOS SDKs
-        env:
-          THEOS: ${{ github.workspace }}/theos
+      - name: Verify project files
         run: |
-          git clone --recursive --depth 1 https://github.com/theos/theos.git "$THEOS"
-          rm -rf "$THEOS/sdks"
-          git clone --depth 1 https://github.com/theos/sdks.git "$THEOS/sdks"
-          test -d "$THEOS/sdks"
-          find "$THEOS/sdks" -maxdepth 1 -type d -name '*.sdk' -print
+          pwd
+          ls -la
+          test -f Makefile
+          test -f Tweak.mm
+          test -f control
+          test -f WolFoxGPS.plist
+          grep -q 'WolFoxGPS_FILES.*Tweak.mm' Makefile
 
-      - name: Locate Theos project
-        id: project
+      - name: Install Theos, toolchain and SDKs
         run: |
-          PROJECT_DIR=""
-          while IFS= read -r makefile; do
-            dir="$(dirname "$makefile")"
-            if grep -Eq 'tweak\.mk|application\.mk|tool\.mk' "$makefile"; then
-              PROJECT_DIR="$dir"
-              break
-            fi
-          done < <(find . -path './theos' -prune -o -name Makefile -print)
-
-          if [ -z "$PROJECT_DIR" ]; then
-            echo 'No compatible Theos Makefile was found.' >&2
-            exit 1
-          fi
-
-          echo "dir=$PROJECT_DIR" >> "$GITHUB_OUTPUT"
-          echo "Using project: $PROJECT_DIR"
+          rm -rf "$THEOS"
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+          test -d "$THEOS"
+          test -x "$THEOS/toolchain/linux/iphone/bin/clang"
+          test -n "$(find "$THEOS/sdks" -maxdepth 1 -type d -name '*.sdk' -print -quit)"
+          "$THEOS/toolchain/linux/iphone/bin/clang" --version
 
       - name: Build rootless package
-        env:
-          THEOS: ${{ github.workspace }}/theos
-        working-directory: ${{ steps.project.outputs.dir }}
+        working-directory: ${{ github.workspace }}
         run: |
+          export THEOS="$THEOS"
           make clean
           make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless messages=yes
 
       - name: Collect packages
         run: |
           mkdir -p artifacts
-          find . -path './theos' -prune -o -type f -name '*.deb' -exec cp -v {} artifacts/ \;
+          find packages -type f -name '*.deb' -exec cp -v {} artifacts/ \;
           test -n "$(find artifacts -type f -name '*.deb' -print -quit)"
 
       - name: Upload DEB artifact
