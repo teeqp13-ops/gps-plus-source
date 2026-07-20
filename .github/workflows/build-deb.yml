@@ -5,24 +5,17 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '**.mm'
-      - '**.xm'
-      - '**/Makefile'
-      - '**/control'
-      - '**.plist'
-      - '.github/workflows/build-deb.yml'
 
 permissions:
   contents: read
+
+env:
+  THEOS: ${{ github.workspace }}/theos
 
 jobs:
   build:
     runs-on: ubuntu-22.04
     timeout-minutes: 35
-
-    env:
-      THEOS: ${{ github.workspace }}/theos
 
     steps:
       - name: Checkout
@@ -55,7 +48,6 @@ jobs:
       - name: Build rootless package
         working-directory: ${{ github.workspace }}
         run: |
-          export THEOS="$THEOS"
           make clean
           make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless messages=yes
 
