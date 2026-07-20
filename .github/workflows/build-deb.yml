@@ -1,0 +1,80 @@
+name: Build WolFox GPS DEB
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - wolfox-gps-build
+    paths:
+      - '**.mm'
+      - '**.xm'
+      - '**/Makefile'
+      - '**/control'
+      - '**.plist'
+      - '.github/workflows/build-deb.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential fakeroot perl unzip git curl xz-utils libplist-utils clang lld
+
+      - name: Install Theos
+        env:
+          THEOS: ${{ github.workspace }}/theos
+        run: |
+          git clone --recursive --depth 1 https://github.com/theos/theos.git "$THEOS"
+          git clone --depth 1 https://github.com/theos/sdks.git "$THEOS/sdks"
+
+      - name: Locate Theos project
+        id: project
+        run: |
+          PROJECT_DIR=""
+          while IFS= read -r makefile; do
+            dir="$(dirname "$makefile")"
+            if grep -Eq 'tweak\.mk|application\.mk|tool\.mk' "$makefile"; then
+              PROJECT_DIR="$dir"
+              break
+            fi
+          done < <(find . -path './theos' -prune -o -name Makefile -print)
+
+          if [ -z "$PROJECT_DIR" ]; then
+            echo 'No compatible Theos Makefile was found.' >&2
+            exit 1
+          fi
+
+          echo "dir=$PROJECT_DIR" >> "$GITHUB_OUTPUT"
+          echo "Using project: $PROJECT_DIR"
+
+      - name: Build rootless package
+        env:
+          THEOS: ${{ github.workspace }}/theos
+        working-directory: ${{ steps.project.outputs.dir }}
+        run: |
+          make clean
+          make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless messages=yes
+
+      - name: Collect packages
+        run: |
+          mkdir -p artifacts
+          find . -path './theos' -prune -o -type f -name '*.deb' -exec cp -v {} artifacts/ \;
+          test -n "$(find artifacts -type f -name '*.deb' -print -quit)"
+
+      - name: Upload DEB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: WolFox-GPS-DEB
+          path: artifacts/*.deb
+          if-no-files-found: error
+          retention-days: 30
