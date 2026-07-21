@@ -72,7 +72,7 @@ static void WFActivate4(NSString *code, void (^done)(BOOL, NSString *)) {
                       WFEncode4(WFAPISecret4), WFEncode4(code), WFEncode4(device), WFEncode4(deviceName)];
     request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
 
-    [NSURLSession.sharedSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSHTTPURLResponse *http = (NSHTTPURLResponse *)response;
             if (error || !http || http.statusCode < 200 || http.statusCode >= 300 || !data.length) {
@@ -94,7 +94,8 @@ static void WFActivate4(NSString *code, void (^done)(BOOL, NSString *)) {
             [WFDefaults4() synchronize];
             done(YES, @"تم تفعيل الأداة بنجاح");
         });
-    }].resume;
+    }];
+    [task resume];
 }
 
 @interface WFLicenseControllerV4 : UIViewController <UITextFieldDelegate>
