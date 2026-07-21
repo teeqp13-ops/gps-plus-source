@@ -1,9 +1,9 @@
 Package: com.wolfox.gps
 Name: WolFox GPS
-Depends: mobilesubstrate
-Version: 1.3.0
-Architecture: iphoneos-arm
-Description: WolFox GPS with full-screen activation, floating control, maps, favorites, history, settings, and system-wide location override.
+Depends: mobilesubstrate | ellekit, firmware (>= 14.0)
+Version: 1.3.1
+Architecture: iphoneos-arm64
+Description: WolFox GPS with activation, floating control, maps, favorites, history, settings, and location controls.
 Maintainer: WolFox
 Author: WolFox
 Section: Tweaks
